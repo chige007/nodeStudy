@@ -1,0 +1,29 @@
+查看本机node.js版本：
+$ node -v
+
+清除node.js的cache：
+$ sudo npm cache clean -f
+
+安装 n 工具，这个工具是专门用来管理node.js版本：
+$ sudo npm install -g n
+
+安装最新版本的node.js：
+$ sudo n stable
+
+REPL 命令:
+ctrl + c - 终止当前命令
+ctrl + c twice - 终止Node REPL
+ctrl + d - 终止Node REPL
+Up/Down Keys - 查看命令历史记录和修改以前的命令
+tab Keys - 当前指令的列表
+.help - 所有命令的列表
+.break - 退出多行表达式
+.clear - 从多行表达退出
+.save filename - 当前Node REPL会话保存到文件中
+.load filename - 加载文件的内容在当前Node REPL会话
+
+更新npm：
+npm i -g npm;
+
+卸载包：
+$ npm uninstall XXX
