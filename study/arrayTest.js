@@ -74,4 +74,109 @@ console.log('--------------- findIndex (返回数组中满足提供的测试函�
 var arr_findIndex = ['a','b','c','dd','e','f','g','h','i','j'].findIndex(str => str.length > 1);
 console.log(arr_findIndex);
 
+console.log('--------------- forEach (对数组的每个元素执行一次提供的函数) ---------------');
+// array.forEach(callback(currentValue, index, array){
+//     //do something
+// }, this)
+var arr_forEach = '';
+['a','b','c','dd','e','f','g','h','i','j'].forEach(function(item) {
+    arr_forEach += item;
+});
+console.log(arr_forEach);
+
+console.log('--------------- includes (用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false) ---------------');
+// arr.includes(searchElement)需要查找的元素值。
+// arr.includes(searchElement, fromIndex)从该索引处开始查找 searchElement。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜索。默认为 0。
+var arr_includes = ['dog','cat','tiger','mouse','bee'];
+console.log(arr_includes.includes('tiger'));
+console.log(arr_includes.includes('ger'));
+console.log(arr_includes.includes('tiger',1));
+console.log(arr_includes.includes('tiger',4));
+
+console.log('--------------- indexOf (返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1) ---------------');
+// arr.indexOf(searchElement)要查找的元素
+// arr.indexOf(searchElement[, fromIndex = 0])开始查找的位置。
+var arr_indexOf = [1,2,3,4,5,6,7,8,9];
+var arr_indexOf_1 = arr_indexOf.indexOf(1);
+var arr_indexOf_2 = arr_indexOf.indexOf(10);
+var arr_indexOf_3 = arr_indexOf.indexOf(3,1);
+var arr_indexOf_4 = arr_indexOf.indexOf(3,5);
+console.log(arr_indexOf_1);
+console.log(arr_indexOf_2);
+console.log(arr_indexOf_3);
+console.log(arr_indexOf_4);
+
+console.log('--------------- join (将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串) ---------------');
+// str = arr.join(separator)
+var arr_join = ['Fire', 'Wind', 'Rain'];
+console.log(arr_join.join());
+console.log(arr_join.join(''));
+console.log(arr_join.join('-'));
+
+console.log('--------------- keys (返回一个新的Array迭代器，它包含数组中每个索引的键) ---------------');
+var arr_keys = ['a', 'b', 'c'];
+var iterator_keys = arr_keys.keys(); 
+for (let key of iterator_keys) {
+  console.log(key); // expected output: 0 1 2
+}
+
+console.log('--------------- lastIndexOf (返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始。) ---------------');
+// arr.lastIndexOf(searchElement[, fromIndex = arr.length - 1])
+var arr_lastIndexOf = [1,2,3,4,5,6,7,8,9,10];
+console.log(arr_lastIndexOf.lastIndexOf(6));
+console.log(arr_lastIndexOf.lastIndexOf(6,6));
+
+console.log('--------------- map (创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。) ---------------');
+// let new_array = arr.map(function callback(currentValue, index, array) { 
+//     // Return element for new_array 
+// }[, thisArg])
+var arr_map = [1,2,3,4,5,6].map(function(currentValue, index, array){
+    return currentValue * index;
+});
+console.log(arr_map);
+
+console.log('--------------- pop (从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度) ---------------');
+var arr_pop = [1,2,3,4,5,6];
+var arr_pop_2 = arr_pop.pop();
+console.log(arr_pop)
+console.log(arr_pop_2)
+
+console.log('--------------- push (将一个或多个元素添加到数组的末尾，并返回新数组的长度) ---------------');
+var arr_push = [1,2,3,4,5,6];
+console.log(arr_push)
+var arr_push_2 = arr_push.push(100);
+console.log(arr_push_2)
+var arr_push_3 = arr_push.push(100,101);
+console.log(arr_push)
+
+console.log('--------------- reduce (对累加器和数组中的每个元素（从左到右）应用一个函数，将其减少为单个值。) ---------------');
+// arr.reduce(callback[, initialValue])
+// callback参数：accumulator-累加器累加回调的返回值，currentValue-数组中正在处理的元素，currentIndex-数组中正在处理的当前元素的索引，array-调用reduce的数组
+var arr_reduce = [1,2,3,4,5,6];
+var fun_reduce = (accumulator,currentValue,currentIndex) => {
+    console.log(currentValue);
+    return accumulator+currentValue;
+}
+var arr_reduce = arr_reduce.reduce(fun_reduce);
+console.log(arr_reduce)
+
+console.log('--------------- reduceRight (对累加器和数组中的每个元素（从左到右）应用一个函数，将其减少为单个值。) ---------------');
+// arr.reduceRight(callback[, initialValue])
+// callback
+// 一个回调函数，用来操作数组中的每个元素，可接受四个参数：
+//     previousValue
+//     上一次调用回调的返回值，或提供的 initialValue
+//     currentValue
+//     当前被处理的元素
+//     index
+//     当前处理元素的索引
+//     array
+//     调用 reduce 的数组
+// initialValue
+// 可作为第一次调用回调 callback 的第一个参数
+var arr_reduceRight = ['1','2','3','4','5'];
+var arr_reduceRight = arr_reduceRight.reduceRight(function(prev, cur){
+    return prev + cur; 
+}); 
+console.log(arr_reduceRight);
 
