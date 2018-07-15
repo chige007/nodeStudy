@@ -180,3 +180,53 @@ var arr_reduceRight = arr_reduceRight.reduceRight(function(prev, cur){
 }); 
 console.log(arr_reduceRight);
 
+console.log('--------------- reverse() 方法将数组中元素的位置颠倒。 ---------------');
+var arr_reverse = [1,2,3,4].reverse();
+console.log(arr_reverse);
+
+console.log('--------------- shift() 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。---------------');
+var arr_shift = [1,2,3,4,5];
+var arr_shift_2 = arr_shift.shift();
+console.log(arr_shift);
+console.log(arr_shift_2);
+
+console.log('--------------- slice() 方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。 ---------------');
+// arr.slice();
+// arr.slice(begin);
+// arr.slice(begin, end);
+var arr_slice = ['a','b','c','d','e'];
+console.log(arr_slice.slice());
+console.log(arr_slice.slice(2));
+console.log(arr_slice.slice(2,4));
+
+console.log('--------------- some() 方法测试数组中的某些元素是否通过由提供的函数实现的测试。 ---------------');
+var arr_some = [1,2,3,4,5,6,7,8,9];
+var some_func = function(elem){
+    return elem > 10;
+}
+console.log(arr_some.some(some_func));
+
+console.log('--------------- sort() 方法用就地（ in-place ）的算法对数组的元素进行排序，并返回数组。 sort 排序不一定是稳定的。默认排序顺序是根据字符串Unicode码点。 ---------------');
+var arr_sort = [10,2,13,'a','*',6,0,-1,'b'];
+console.log(arr_sort.sort());
+console.log(arr_sort.sort( (a,b) => a - b) );
+
+console.log('--------------- splice() 方法通过删除现有元素和/或添加新元素来更改一个数组的内容。 ---------------');
+var arr_splice = [1,2,3,4,5,6,7,8,9];
+arr_splice.splice(1,2,'a');
+console.log(arr_splice);
+
+console.log('--------------- toLocaleString() 返回一个字符串表示数组中的元素。数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 ","）隔开。 ---------------');
+var arr_localeString = [1, 'a', new Date('21 Dec 1997 14:12:00 UTC')];
+var arr_localeString = arr_localeString.toLocaleString('en', {timeZone: "UTC"});
+console.log(arr_localeString);
+
+console.log('--------------- toString() 返回一个字符串，表示指定的数组及其元素。---------------');
+var arr_toString = [1,2,'a','bc',0,34];
+console.log(arr_toString.toString());
+console.log(typeof arr_toString.toString());
+
+console.log('--------------- unshift() 方法将一个或多个元素添加到数组的开头，并返回新数组的长度。 ---------------');
+var arr_unshift = [1,2,3,4,5,6];
+arr_unshift.unshift(4,5)
+console.log(arr_unshift);
