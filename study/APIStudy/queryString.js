@@ -21,7 +21,7 @@ let stringify3 = myQueryStrings.stringify({
 },',',':');
 console.log(stringify3);
 
-let parse = 	myQueryStrings.parse('name=chenyc&sex=male&age=27');
+let parse = myQueryStrings.parse('name=chenyc&sex=male&age=27');
 console.log(parse);
 
 let parse2 = myQueryStrings.parse('name=chenyc,sex=male,age=27',',');
