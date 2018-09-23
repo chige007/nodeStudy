@@ -15,3 +15,12 @@ connection.connect( (err) => {
     }
     console.log('连接成功：connected as id'+ connection.threadId);
 });
+
+connection.query('select * from t_org_module where is_phone = "Y"', (err, rows)=>{
+    if(err){
+        console.error(err);
+        return;
+    }else{
+        console.log(rows);
+    }
+});
