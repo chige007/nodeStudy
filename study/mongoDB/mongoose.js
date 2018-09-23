@@ -99,7 +99,7 @@ const curd = {
     }
 }
 // curd.save(user);
-// curd.find(User, {realname: 'chenyc'});
+curd.find(User, {realname: 'chenyc'});
 // curd.findOne(User, {realname: 'chenyc'});
 // curd.update(User, {realname: 'chenyc'}, 'phone', '123');
-curd.remove(User, {realname: 'chenyc'});
+// curd.remove(User, {realname: 'chenyc'});
