@@ -33,14 +33,73 @@ var user = new User({
     password: '123456',
     email: '2234234@qq.com',
     phone: '13413212234',
-    realname: '陈陈陈'
+    realname: 'chenyc'
 });
 
-user.save(function(err){
-    if(err){
-        console.log('保存失败！');
-        console.log(err);
-        return;
+const curd = {
+    // 保存
+    save (dataObj) {
+        dataObj.save(function(err){
+            if(err){
+                console.log('保存失败！');
+                console.log(err);
+                return;
+            }
+            console.log('保存成功！');
+        });
+    },
+    // 查询
+    find (model, params = {}) {
+        model.find(params, (err, docs) => {
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log('data: ' + docs);
+        });
+    },
+    // 查询一个
+    findOne (model, params = {}) {
+        model.findOne(params, (err, docs) => {
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log('data: ' + docs);
+        });
+    },
+    // 更新
+    update (model, params = {}, key, value) {
+        model.find(params, (err, docs) => {
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log('data: ' + docs);
+            docs.forEach(element => {
+                element[key] = value;
+                element.save();
+            });
+            console.log('data: ' + docs);
+        });
+    },
+    // 删除
+    remove (model, params = {}) {
+        model.find(params, (err, docs) => {
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log('data: ' + docs);
+            docs.forEach(element => {
+                element.remove();
+            });
+            console.log('删除成功！');
+        });
     }
-    console.log('保存成功！');
-});
+}
+// curd.save(user);
+// curd.find(User, {realname: 'chenyc'});
+// curd.findOne(User, {realname: 'chenyc'});
+// curd.update(User, {realname: 'chenyc'}, 'phone', '123');
+curd.remove(User, {realname: 'chenyc'});
