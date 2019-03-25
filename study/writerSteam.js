@@ -9,7 +9,7 @@ writerStream.write(data,"UTF8");
 writerStream.end();
 
 writerStream.on("finish",function(){
-	console.log("finish");
+	console.log("finish123123");
 })
 
 writerStream.on('error', function(err){
