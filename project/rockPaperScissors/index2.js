@@ -5,7 +5,9 @@ var count = 0;
 
 process.stdin.on('data', e => {
     const mine = e.toString().trim();
-    const result = game(mine);
+    const {result, tips} = game(mine);
+    
+    console.log(tips);
 
     if (result === -1) {
         count++;

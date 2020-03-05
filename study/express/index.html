@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #responsePanel{
+        width: 500px;
+        height: 500px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        overflow: auto;
+    }
+</style>
+<body>
+    <div id="responsePanel">
+
+    </div>
+    <button id="rock">石头</button>
+    <button id="scissors">剪刀</button>
+    <button id="paper">布</button>
+    <button id="clear">清空</button>
+
+    <script>
+        var $button = {
+            'rock': document.getElementById('rock'),
+            'scissors': document.getElementById('scissors'),
+            'paper': document.getElementById('paper')
+        }
+        
+        var $responsePanel = document.getElementById('responsePanel');
+
+        Object.keys($button).forEach(key => {
+            $button[key].addEventListener('click', () => {
+                fetch(`http://${location.host}/game?action=${key}`).then(res => {
+                    return res.text();
+                }).then(text => {
+                    $responsePanel.innerHTML += text + '<br>';
+                })
+            })
+        })
+
+        document.getElementById('clear').addEventListener('click', () => {
+            responsePanel.innerHTML = '';
+        })
+
+    </script>
+</body>
+</html>
